@@ -9,8 +9,8 @@ const socketio = require('socket.io');
 const app= express();
 // Init Nexmo
 const nexmo = new Nexmo({
-  apiKey: '639cc77c',
-  apiSecret: 'ZOlrtJg7jmJ4xGT1'
+  apiKey: 'apikey',
+  apiSecret: 'secretkey'
 }, { debug: true });
 
 //middleware
@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
     const { number, text } = req.body;
   
     nexmo.message.sendSms(
-      '12034848525', number, text, { type: 'unicode' },
+      'virtualnumber', number, text, { type: 'unicode' },
       (err, responseData) => {
         if(err) {
           console.log(err);
